@@ -8,4 +8,4 @@ RUN mvn dependency:go-offline
 
 COPY src ./src
 
-CMD ["mvn", "clean", "test"]
+CMD ["./entrypoint.sh"]

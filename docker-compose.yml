@@ -47,14 +47,14 @@ services:
       SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
       SE_VNC_NO_PASSWORD: 1
 
-#  tests:
-#    build:
-#      context: .
-#    depends_on:
-#      - selenium-hub
-#      - chrome
-#      - firefox
-#      - edge
-#    volumes:
-#      - ./report:/app/report
-#    command: mvn test
+  tests:
+    container_name: capitole_tests
+    build:
+      context: .
+    depends_on:
+      - chrome
+      - firefox
+      - edge
+    volumes:
+      - ./reports:/app/reports
+      - ./images:/app/images
