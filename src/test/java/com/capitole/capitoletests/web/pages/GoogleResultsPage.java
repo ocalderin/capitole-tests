@@ -11,7 +11,7 @@ public class GoogleResultsPage extends BasePage {
     private final static String WIKIPEDIA_TITLE = "Wikipedia, la enciclopedia libre";
     private final By resultBy = By.className("g");
     private final By resultTitleBy = By.tagName("h3");
-    public GoogleResultsPage(WebDriver driver) {
+    public GoogleResultsPage(final WebDriver driver) {
         super(driver);
     }
 
@@ -19,7 +19,6 @@ public class GoogleResultsPage extends BasePage {
         final Optional<WebElement> link = driver.findElements(resultBy).stream()
                 .filter(e -> e.findElement(resultTitleBy).getText().contains(WIKIPEDIA_TITLE)).findFirst();
         if (link.isPresent())
-//            link.get().click();
             click(link.get());
         else throw new Exception("The link can not be found");
     }

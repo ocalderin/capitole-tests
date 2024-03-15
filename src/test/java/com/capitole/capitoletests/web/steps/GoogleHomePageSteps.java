@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 public class GoogleHomePageSteps {
     private GoogleHomePage googleHomePage;
 
-    public GoogleHomePageSteps(TestContext testContext) throws Exception {
+    public GoogleHomePageSteps(final TestContext testContext) throws Exception {
         googleHomePage = new GoogleHomePage(testContext.getDriverManager().getWebDriver());
     }
 
@@ -18,7 +18,7 @@ public class GoogleHomePageSteps {
     }
 
     @When("The user searches for the word {string}")
-    public void theUserSearchesForTheWord(String word) {
+    public void theUserSearchesForTheWord(final String word) {
         googleHomePage.searchWord(word);
     }
 }

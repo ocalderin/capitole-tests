@@ -1,6 +1,8 @@
 package com.capitole.capitoletests.frameworkauto.web;
 
+import com.capitole.capitoletests.frameworkauto.utils.Constants;
 import com.capitole.capitoletests.frameworkauto.utils.GetProperties;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,8 +10,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.capitole.capitoletests.frameworkauto.utils.Constants;
-import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -41,7 +41,7 @@ public class WebDriverManager {
         return driver;
     }
 
-    private WebDriver createDriver(String browser) {
+    private WebDriver createDriver(final String browser) {
         return switch (browser) {
             case "firefox" -> new FirefoxDriver(OptionsManager.FirefoxOptions());
             case "edge" -> new EdgeDriver(OptionsManager.EdgeOptions());

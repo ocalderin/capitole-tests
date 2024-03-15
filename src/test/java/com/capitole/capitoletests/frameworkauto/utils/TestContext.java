@@ -12,8 +12,4 @@ public class TestContext {
     public WebDriverManager getDriverManager() {
         return driverManager;
     }
-
-    public void setDriverManager(WebDriverManager driverManager) {
-        this.driverManager = driverManager;
-    }
 }

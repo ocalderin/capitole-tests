@@ -15,7 +15,7 @@ public class GetProperties {
 
     public GetProperties(){
         final String propertiesFile = "/config.properties";
-        InputStream in = getClass().getResourceAsStream(propertiesFile);
+        final InputStream in = getClass().getResourceAsStream(propertiesFile);
         try {
             prop.load(in);
         }

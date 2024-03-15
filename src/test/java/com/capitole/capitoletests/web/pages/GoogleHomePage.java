@@ -13,7 +13,7 @@ public class GoogleHomePage extends BasePage {
     private final By consentDialogBy = By.id("CXQnmb");
     private final By acceptAllButtonBy = By.id("L2AGLb");
 
-    public GoogleHomePage(WebDriver driver) {
+    public GoogleHomePage(final WebDriver driver) {
         super(driver);
     }
 
@@ -25,9 +25,7 @@ public class GoogleHomePage extends BasePage {
         }
     }
 
-    public void searchWord(String word) {
-//        final WebElement searchInput = driver.findElement(searchInputBy);
-//        searchInput.sendKeys(word + Keys.ENTER);
+    public void searchWord(final String word) {
         writeText(searchInputBy, word + Keys.ENTER);
     }
 }

@@ -23,10 +23,10 @@ public class BasePage {
         javascriptExecutor = (JavascriptExecutor) driver;
     }
 
-    public <T> void waitElement(final T elementAttr) {
+    protected  <T> void waitElement(final T elementAttr) {
         waitElement(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    public <T> void waitElement(final T elementAttr, final int timeout) {
+    protected <T> void waitElement(final T elementAttr, final int timeout) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         if (elementAttr
                 .getClass()
@@ -38,10 +38,10 @@ public class BasePage {
         }
     }
 
-    public <T> void click(final T elementAttr) {
+    protected <T> void click(final T elementAttr) {
         click(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    public <T> void click(final T elementAttr, final int timeout) {
+    protected <T> void click(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
                 .getClass()
@@ -56,10 +56,10 @@ public class BasePage {
         }
     }
 
-    public <T> void writeText(final T elementAttr, final String text) {
+    protected <T> void writeText(final T elementAttr, final String text) {
         writeText(elementAttr, text, Constants.DEFAULT_TIMEOUT);
     }
-    public <T> void writeText(final T elementAttr, final String text, final int timeout) {
+    protected <T> void writeText(final T elementAttr, final String text, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
                 .getClass()
@@ -75,10 +75,10 @@ public class BasePage {
         }
     }
 
-    public <T> String readText(final T elementAttr) {
+    protected <T> String readText(final T elementAttr) {
         return readText(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    public <T> String readText(final T elementAttr, final int timeout) {
+    protected <T> String readText(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
                 .getClass()
@@ -92,13 +92,13 @@ public class BasePage {
         }
     }
 
-    public <T> boolean isElementDisplayed(final T elementAttr) {
+    protected <T> boolean isElementDisplayed(final T elementAttr) {
         return isElementDisplayed(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    public <T> boolean isElementDisplayed(final T elementAttr, final int timeout) {
+    protected <T> boolean isElementDisplayed(final T elementAttr, final int timeout) {
         try {
             waitElement(elementAttr, timeout);
-            WebElement element = null;
+            WebElement element;
             if (elementAttr
                     .getClass()
                     .getName()
@@ -114,5 +114,19 @@ public class BasePage {
             logger.error("Error looking for error element: "  + e.getMessage());
             return false;
         }
+    }
+
+    protected <T> void highlightElement(final T elementAttr) {
+        WebElement element;
+        if (elementAttr
+                .getClass()
+                .getName()
+                .contains("By")) {
+            element = driver
+                    .findElement((By) elementAttr);
+        } else {
+            element = (WebElement) elementAttr;
+        }
+        javascriptExecutor.executeScript(Constants.HIGHLIGHT_ELEMENT_SCRIPT, element);
     }
 }

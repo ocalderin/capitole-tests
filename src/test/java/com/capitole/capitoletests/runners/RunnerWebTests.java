@@ -11,9 +11,7 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @IncludeTags("web")
 @SelectClasspathResource("web/features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.capitole.capitoletests.web")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "json:reports/cucumber-report/login-report.json, " +
-        "html:reports/cucumber-report/login-report.html, timeline:reports/cucumber-report/login-timeline-report")
-
-
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "json:reports/cucumber-report/web-report.json, " +
+        "html:reports/cucumber-report/web-report.html, timeline:reports/cucumber-report/web-timeline-report")
 public class RunnerWebTests {
 }
