@@ -30,6 +30,7 @@ public class BasePage {
     public  <T> void waitElement(final T elementAttr) {
         waitElement(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
+
     public <T> void waitElement(final T elementAttr, final int timeout) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         if (elementAttr
@@ -41,6 +42,7 @@ public class BasePage {
             wait.until(ExpectedConditions.visibilityOf((WebElement) elementAttr));
         }
     }
+
     public  <T> void waitElements(final T elementAttr) {
         waitElements(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
@@ -60,6 +62,7 @@ public class BasePage {
     public <T> void click(final T elementAttr) {
         click(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
+
     public <T> void click(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
         WebElement element;
@@ -82,6 +85,7 @@ public class BasePage {
     public <T> void writeText(final T elementAttr, final String text) {
         writeText(elementAttr, text, Constants.DEFAULT_TIMEOUT);
     }
+
     public <T> void writeText(final T elementAttr, final String text, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
@@ -101,6 +105,7 @@ public class BasePage {
     public <T> String readText(final T elementAttr) {
         return readText(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
+
     public <T> String readText(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
@@ -118,6 +123,7 @@ public class BasePage {
     public <T> boolean isElementDisplayed(final T elementAttr) {
         return isElementDisplayed(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
+
     public <T> boolean isElementDisplayed(final T elementAttr, final int timeout) {
         try {
             waitElement(elementAttr, timeout);

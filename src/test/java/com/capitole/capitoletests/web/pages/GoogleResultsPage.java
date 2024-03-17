@@ -11,6 +11,7 @@ public class GoogleResultsPage extends BasePage {
     private final static String WIKIPEDIA_TITLE = "Wikipedia, la enciclopedia libre";
     private final By resultBy = By.className("g");
     private final By resultTitleBy = By.tagName("h3");
+
     public GoogleResultsPage(final WebDriver driver) {
         super(driver);
     }

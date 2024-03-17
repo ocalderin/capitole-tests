@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 public class OptionsManager {
     private static final Logger logger = LoggerFactory.getLogger(OptionsManager.class);
     private static final boolean HEADLESS = Boolean.parseBoolean(System.getProperty("headless", "false"));
+
     public static ChromeOptions ChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--no-sandbox");

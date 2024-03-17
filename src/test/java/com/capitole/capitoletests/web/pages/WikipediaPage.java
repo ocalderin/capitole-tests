@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class WikipediaPage extends BasePage {
     private final By bodyBy = By.tagName("body");
     private final By paragraphBy = By.xpath("//*[@id='cite_ref-27']/..");
+
     public WikipediaPage(final WebDriver driver) {
         super(driver);
     }

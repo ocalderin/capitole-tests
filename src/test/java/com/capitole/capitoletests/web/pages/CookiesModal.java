@@ -20,5 +20,4 @@ public class CookiesModal extends BasePage {
         final WebElement consentDialog = driver.findElement(cookiesModalBy);
         click(consentDialog.findElement(acceptAllButtonBy));
     }
-
 }

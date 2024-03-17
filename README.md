@@ -11,7 +11,7 @@ following the Behavior Driven Development testing approach.
 * Java: Programming language used for test automation.
 * Selenium WebDriver: Web UI testing framework.
 * Docker: Tool used to build, share, and run container applications.
-* Cucumber: Tool that supports Behavior Driven Development
+* Cucumber: Tool that supports Behavior Driven Development.
 
 #### **Prerequisites:**
 Ensure the following tools are installed on your machine:

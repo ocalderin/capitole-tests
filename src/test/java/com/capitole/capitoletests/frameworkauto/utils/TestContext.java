@@ -8,7 +8,6 @@ public class TestContext {
     public TestContext() {
         driverManager = new WebDriverManager();
     }
-
     public WebDriverManager getDriverManager() {
         return driverManager;
     }

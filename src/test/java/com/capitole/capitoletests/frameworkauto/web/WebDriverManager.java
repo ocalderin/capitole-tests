@@ -58,6 +58,7 @@ public class WebDriverManager {
             default -> new RemoteWebDriver(new URL(hubUri), OptionsManager.ChromeOptions());
         };
     }
+
     public void quitWebDriver() {
         if (driver != null) {
             driver.quit();
