@@ -1,0 +1,32 @@
+name: Running Web Automated Tests
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Start grid and Run Tests
+        run: docker compose up --build --exit-code-from tests 
+
+      - name: Upload Screenshot
+        uses: actions/upload-artifact@v4.3.1
+        if: always()
+        with:    
+          name: Wikipedia Screenshot  
+          path: images/*.png
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v4.3.1
+        if: always()
+        with:    
+          name: Report  
+          path: reports/cucumber-report/*
