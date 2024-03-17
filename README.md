@@ -1,14 +1,17 @@
 # Automated Web Tests 
 
 #### **Overview:**
-The purpose of this project is to create a solution that executes the automated web tests requested in the technical test.
-
+The purpose of this project is to create a solution that executes the automated web tests requested in the technical test. It was developed 
+using Java, Maven, Selenium, and Docker. The architecture of the solution follows what is defined by the Page Objects Model design pattern,
+one of the most used design patterns when developing an automated tests framework. Also, Cucumber was used to create the test cases
+following the Behavior Driven Development testing approach.
 
 #### **Technologies Used:**
 * Maven: Project management and build tool.
 * Java: Programming language used for test automation.
 * Selenium WebDriver: Web UI testing framework.
 * Docker: Tool used to build, share, and run container applications.
+* Cucumber: Tool that supports Behavior Driven Development
 
 #### **Prerequisites:**
 Ensure the following tools are installed on your machine:
