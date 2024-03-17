@@ -20,6 +20,6 @@ public class GoogleResultsPage extends BasePage {
                 .filter(e -> e.findElement(resultTitleBy).getText().contains(WIKIPEDIA_TITLE)).findFirst();
         if (link.isPresent())
             click(link.get());
-        else throw new Exception("The link can not be found");
+        else throw new Exception("The Wikipedia link related to the searched word could not be found");
     }
 }

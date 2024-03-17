@@ -8,7 +8,6 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @Suite
 @SuiteDisplayName("Web Tests")
 @IncludeEngines("cucumber")
-@IncludeTags("web")
 @SelectClasspathResource("web/features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.capitole.capitoletests.web")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "json:reports/cucumber-report/web-report.json, " +

@@ -1,6 +1,6 @@
 target/
-.mvn/wrapper/maven-wrapper.jar
-.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -39,5 +39,4 @@ build/
 images/
 reports/
 logs
-mvnw
 mvnw.cmd

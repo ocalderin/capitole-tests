@@ -23,6 +23,10 @@ public class BasePage {
         javascriptExecutor = (JavascriptExecutor) driver;
     }
 
+    protected void navigateTo(final String url) {
+        driver.get(url);
+    }
+
     protected  <T> void waitElement(final T elementAttr) {
         waitElement(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
@@ -43,17 +47,21 @@ public class BasePage {
     }
     protected <T> void click(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
+        WebElement element;
         if (elementAttr
                 .getClass()
                 .getName()
                 .contains("By")) {
-            final WebElement element = driver.findElement((By) elementAttr);
-            javascriptExecutor.executeScript(Constants.SCROLL_INTO_VIEW_SCRIPT, element);
-            element.click();
+            element = driver.findElement((By) elementAttr);
         } else {
-            javascriptExecutor.executeScript(Constants.SCROLL_INTO_VIEW_SCRIPT, elementAttr);
-            ((WebElement) elementAttr).click();
+            element = ((WebElement) elementAttr);
         }
+        scrollIntoView(element);
+        element.click();
+    }
+
+    protected void scrollIntoView(final WebElement element) {
+        javascriptExecutor.executeScript(Constants.SCROLL_INTO_VIEW_SCRIPT, element);
     }
 
     protected <T> void writeText(final T elementAttr, final String text) {
@@ -127,6 +135,7 @@ public class BasePage {
         } else {
             element = (WebElement) elementAttr;
         }
+        scrollIntoView(element);
         javascriptExecutor.executeScript(Constants.HIGHLIGHT_ELEMENT_SCRIPT, element);
     }
 }

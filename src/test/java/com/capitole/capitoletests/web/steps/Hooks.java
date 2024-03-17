@@ -16,18 +16,14 @@ public class Hooks {
         this.testContext = testContext;
     }
 
-
-
     @After
     public void tearDown(Scenario scenario) {
-        if (scenario.getSourceTagNames().contains("@web")) {
-            try {
-                byte[] screenshot = ScreenshotUtil.saveScreenshotFile(testContext.getDriverManager().getWebDriver(),
-                        FileUtils.formatScenarioName(scenario.getName()));
-                scenario.attach(screenshot, "image/png", scenario.getName());
-            } catch (Exception e) {
-                logger.error("Error taking screenshot: " + e.getMessage());
-            }
+        try {
+            byte[] screenshot = ScreenshotUtil.saveScreenshotFile(testContext.getDriverManager().getWebDriver(),
+                    FileUtils.formatScenarioName(scenario.getName()));
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        } catch (Exception e) {
+            logger.error("Error taking screenshot: " + e.getMessage());
         }
         testContext.getDriverManager().quitWebDriver();
     }

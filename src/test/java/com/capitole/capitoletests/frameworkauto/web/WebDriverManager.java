@@ -51,7 +51,6 @@ public class WebDriverManager {
     }
 
     private WebDriver createRemoteDriver(String browser) throws MalformedURLException {
-        logger.info("Browser selected: " + browser);
         final String hubUri = Constants.HUB_URL;
         return switch (browser) {
             case "firefox" -> new RemoteWebDriver(new URL(hubUri), OptionsManager.FirefoxOptions());
