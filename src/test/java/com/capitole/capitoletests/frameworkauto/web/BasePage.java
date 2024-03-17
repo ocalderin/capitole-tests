@@ -23,14 +23,14 @@ public class BasePage {
         javascriptExecutor = (JavascriptExecutor) driver;
     }
 
-    protected void navigateTo(final String url) {
+    public void navigateTo(final String url) {
         driver.get(url);
     }
 
-    protected  <T> void waitElement(final T elementAttr) {
+    public  <T> void waitElement(final T elementAttr) {
         waitElement(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    protected <T> void waitElement(final T elementAttr, final int timeout) {
+    public <T> void waitElement(final T elementAttr, final int timeout) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         if (elementAttr
                 .getClass()
@@ -41,11 +41,26 @@ public class BasePage {
             wait.until(ExpectedConditions.visibilityOf((WebElement) elementAttr));
         }
     }
+    public  <T> void waitElements(final T elementAttr) {
+        waitElements(elementAttr, Constants.DEFAULT_TIMEOUT);
+    }
 
-    protected <T> void click(final T elementAttr) {
+    public  <T> void waitElements(final T elementAttr, final int timeout) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        if (elementAttr
+                .getClass()
+                .getName()
+                .contains("By")) {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By) elementAttr));
+        } else {
+            wait.until(ExpectedConditions.visibilityOfAllElements((WebElement) elementAttr));
+        }
+    }
+
+    public <T> void click(final T elementAttr) {
         click(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    protected <T> void click(final T elementAttr, final int timeout) {
+    public <T> void click(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
         WebElement element;
         if (elementAttr
@@ -60,14 +75,14 @@ public class BasePage {
         element.click();
     }
 
-    protected void scrollIntoView(final WebElement element) {
+    public void scrollIntoView(final WebElement element) {
         javascriptExecutor.executeScript(Constants.SCROLL_INTO_VIEW_SCRIPT, element);
     }
 
-    protected <T> void writeText(final T elementAttr, final String text) {
+    public <T> void writeText(final T elementAttr, final String text) {
         writeText(elementAttr, text, Constants.DEFAULT_TIMEOUT);
     }
-    protected <T> void writeText(final T elementAttr, final String text, final int timeout) {
+    public <T> void writeText(final T elementAttr, final String text, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
                 .getClass()
@@ -83,10 +98,10 @@ public class BasePage {
         }
     }
 
-    protected <T> String readText(final T elementAttr) {
+    public <T> String readText(final T elementAttr) {
         return readText(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    protected <T> String readText(final T elementAttr, final int timeout) {
+    public <T> String readText(final T elementAttr, final int timeout) {
         waitElement(elementAttr, timeout);
         if (elementAttr
                 .getClass()
@@ -100,10 +115,10 @@ public class BasePage {
         }
     }
 
-    protected <T> boolean isElementDisplayed(final T elementAttr) {
+    public <T> boolean isElementDisplayed(final T elementAttr) {
         return isElementDisplayed(elementAttr, Constants.DEFAULT_TIMEOUT);
     }
-    protected <T> boolean isElementDisplayed(final T elementAttr, final int timeout) {
+    public <T> boolean isElementDisplayed(final T elementAttr, final int timeout) {
         try {
             waitElement(elementAttr, timeout);
             WebElement element;
@@ -124,7 +139,7 @@ public class BasePage {
         }
     }
 
-    protected <T> void highlightElement(final T elementAttr) {
+    public <T> void highlightElement(final T elementAttr) {
         WebElement element;
         if (elementAttr
                 .getClass()

@@ -16,6 +16,7 @@ public class GoogleResultsPage extends BasePage {
     }
 
     public void openWikipedia() throws Exception {
+        waitElements(resultBy);
         final Optional<WebElement> link = driver.findElements(resultBy).stream()
                 .filter(e -> e.findElement(resultTitleBy).getText().contains(WIKIPEDIA_TITLE)).findFirst();
         if (link.isPresent())
