@@ -84,7 +84,7 @@ Also, the screenshots taken by the automated tests are saved in the folder **ima
 Additionally, you can also run the automated tests on GitHub, using GitHub Actions. To do that:
 1. Go to https://github.com/ocalderin/capitole-tests
 2. Create a fork
-![Captura de pantalla 2024-03-17 a las 7 49 23 p  m](https://github.com/ocalderin/capitole-tests/assets/12141626/eff2d6f7-ff21-444d-b287-5ff32440c4a2)
+![1](https://github.com/ocalderin/capitole-tests/assets/12141626/fa342c0a-ecc9-4926-9281-ea0cde00e8d4)
 3. Click on the Actions button   
 ![Captura de pantalla 2024-03-17 a las 12 11 06 p  m](https://github.com/ocalderin/capitole-tests/assets/12141626/c29beae2-0933-4cd8-990d-14b6a9f14e75)
 4. Select the **Running Web Automated Tests** workflow
